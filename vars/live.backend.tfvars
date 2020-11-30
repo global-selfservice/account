@@ -1,1 +1,1 @@
-bucket = "self-service-terraform-state"
+bucket = "global-self-service-terraform-state"
