@@ -8,8 +8,7 @@ module "ADFS" {
   create_readonly_role = true
   readonly_role_name   = "ADFS-CloudRO"
 
-  provider_name = "TIG_ADFS"
-  provider_id   = "arn:aws:iam::${local.account_id}:saml-provider/TIG_ADFS"
+  provider_id = "arn:aws:iam::${local.account_id}:saml-provider/TIG_ADFS"
 }
 
 module "cost" {
