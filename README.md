@@ -1,5 +1,5 @@
 # Self Service Account
-In this repository we would maintain the resources specific to the AWS account. In case gplan outdoor we have the below 2 AWS account
+In this repository we would maintain the resources specific to the AWS account. In case self service we have the below 2 AWS account
 
 1. globalselfservicedev (435559816706)
 2. globalselfservicelive (191125840152)
