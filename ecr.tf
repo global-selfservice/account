@@ -1,8 +1,8 @@
 locals {
 
   repos = toset([
-    "selfservice-ui",
-    "selfservice-products-api "
+    "selfservice-products-api",
+    "selfservice-ui"
   ])
 
   policy_string = <<EOF
