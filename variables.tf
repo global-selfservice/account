@@ -19,3 +19,9 @@ variable "developers" {
   default     = []
   description = "List of developers roles"
 }
+
+variable "production_account" {
+  type        = bool
+  description = "production account"
+  default     = false
+}
