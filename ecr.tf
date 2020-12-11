@@ -5,7 +5,7 @@ locals {
     "selfservice-ui"
   ])
 
-  ecr_repos = var.production_account ? {} : local.repos
+  ecr_repos = var.production_account ? toset([]) : local.repos
 
   policy_string = <<EOF
 {
