@@ -9,5 +9,7 @@ delegation = {
   "prod"    = ["ns-1458.awsdns-54.org.", "ns-118.awsdns-14.com.", "ns-812.awsdns-37.net.", "ns-1835.awsdns-37.co.uk."]
 }
 
+production_account = true
+
 developers = [
 ]

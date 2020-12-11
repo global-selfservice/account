@@ -5,6 +5,8 @@ locals {
     "selfservice-ui"
   ])
 
+  ecr_repos = var.production_account ? {} : local.repos
+
   policy_string = <<EOF
 {
     "rules": [
@@ -26,7 +28,7 @@ EOF
 }
 
 resource "aws_ecr_repository" "repo" {
-  for_each = local.repos
+  for_each = local.ecr_repos
 
   name = each.key
 
@@ -36,7 +38,7 @@ resource "aws_ecr_repository" "repo" {
 }
 
 resource "aws_ecr_lifecycle_policy" "policy" {
-  for_each = local.repos
+  for_each = local.ecr_repos
 
   repository = aws_ecr_repository.repo[each.key].name
 
