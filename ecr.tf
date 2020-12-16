@@ -76,20 +76,16 @@ data "aws_iam_policy_document" "ecr" {
     ]
   }
 
-  dynamic "statement" {
-    for_each = local.prod_workers
-
-    content {
-      principals {
-        type        = "AWS"
-        identifiers = each.key
-      }
-
-      actions = [
-        "ecr:BatchCheckLayerAvailability",
-        "ecr:BatchGetImage",
-        "ecr:GetDownloadUrlForLayer"
-      ]
+  statement {
+    principals {
+      type        = "AWS"
+      identifiers = local.prod_workers
     }
+
+    actions = [
+      "ecr:BatchCheckLayerAvailability",
+      "ecr:BatchGetImage",
+      "ecr:GetDownloadUrlForLayer"
+    ]
   }
 }
