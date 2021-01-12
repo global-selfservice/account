@@ -42,6 +42,22 @@ data "aws_iam_policy_document" "dev_policy_document" {
 
     resources = ["*"]
   }
+
+  statement {
+    actions = [
+      "s3:*"
+    ]
+
+    resources = ["*"]
+  }
+
+  statement {
+    actions = [
+      "sqs:*"
+    ]
+
+    resources = ["*"]
+  }
 }
 
 resource "aws_iam_policy" "dev_iam_policy" {
