@@ -1,6 +1,6 @@
 module "ADFS" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-roles-with-saml"
-  version = "~> 2"
+  version = "~> 3.6.0"
 
   create_admin_role = false
   admin_role_name   = "ADFS-FullAccess"
