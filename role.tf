@@ -12,7 +12,7 @@ module "ADFS" {
 }
 
 module "cost" {
-  source = "github.com/global-devops-terraform/cost-role?ref=v1.0.2"
+  source = "github.com/global-devops-terraform/cost-role?ref=v1.0.5"
 
   cost_role = module.common.cost_lambda_role
 }
