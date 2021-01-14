@@ -1,5 +1,5 @@
 module "DevopsManagement" {
-  source = "github.com/global-devops-terraform/iam-assumable-role?ref=v0.14.6"
+  source = "github.com/global-devops-terraform/iam-assumable-role?ref=v0.15.0"
 
   name = "DevopsManagement"
 
@@ -16,7 +16,7 @@ module "DevopsManagement" {
 }
 
 module "DevAccess" {
-  source = "github.com/global-devops-terraform/iam-assumable-role?ref=v0.14.6"
+  source = "github.com/global-devops-terraform/iam-assumable-role?ref=v0.15.0"
 
   name = "DevAccess"
 
