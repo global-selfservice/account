@@ -7,7 +7,8 @@ locals {
   repos = toset([
     "selfservice-products-api",
     "selfservice-ui",
-    "selfservice-ui-e2e-tests"
+    "selfservice-ui-e2e-tests",
+    "selfservice-products-data-import-job"
   ])
 
   ecr_repos = var.production_account ? toset([]) : local.repos
