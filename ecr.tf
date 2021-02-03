@@ -5,7 +5,7 @@ locals {
   ])
 
   repos = toset([
-    "custom-docker-build-test"
+    "custom-docker-build-test",
     "selfservice-api-tests",
     "selfservice-products-api",
     "selfservice-products-data-import-job",
