@@ -7,6 +7,7 @@ locals {
   repos = toset([
     "selfservice-api-gateway",
     "selfservice-api-tests",
+    "selfservice-businesses-api",
     "selfservice-products-api",
     "selfservice-products-data-import-job",
     "selfservice-ui",
