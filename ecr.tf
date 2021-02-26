@@ -1,10 +1,10 @@
 locals {
-  prod_workers = toset([
+  prod_workers = [
     module.common.cluster_worker_roles["selfservice-preprod"],
     module.common.cluster_worker_roles["selfservice-prod"]
-  ])
+  ]
 
-  repos = toset([
+  repos = [
     "selfservice-api-gateway",
     "selfservice-api-tests",
     "selfservice-businesses-api",
@@ -13,34 +13,30 @@ locals {
     "selfservice-products-data-import-job",
     "selfservice-ui",
     "selfservice-ui-e2e-tests"
-  ])
+  ]
 
-  ecr_repos = var.production_account ? toset([]) : local.repos
+  policy_string = jsonencode({
+    rules = [{
+      rulePriority = 1
+      description  = "Keep last 10 images"
+      action       = { type = "expire" }
 
-  policy_string = <<EOF
-{
-    "rules": [
-        {
-            "rulePriority": 1,
-            "description": "Keep last 10 images",
-            "selection": {
-                "tagStatus": "any",
-                "countType": "imageCountMoreThan",
-                "countNumber": 10
-            },
-            "action": {
-                "type": "expire"
-            }
-        }
-    ]
-}
-EOF
+      selection = {
+        tagStatus   = "any"
+        countType   = "imageCountMoreThan"
+        countNumber = 10
+      }
+    }]
+  })
+
+  ecr_repos = toset(var.production_account ? [] : local.repos)
 }
 
 resource "aws_ecr_repository" "repo" {
   for_each = local.ecr_repos
 
-  name = each.key
+  name                 = each.key
+  image_tag_mutability = "IMMUTABLE"
 
   image_scanning_configuration {
     scan_on_push = true
@@ -61,6 +57,8 @@ resource "aws_ecr_repository_policy" "policy" {
   repository = aws_ecr_repository.repo[each.key].name
   policy     = data.aws_iam_policy_document.ecr[each.key].json
 }
+
+data "aws_caller_identity" "current" {}
 
 data "aws_iam_policy_document" "ecr" {
   for_each = local.ecr_repos
