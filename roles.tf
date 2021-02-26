@@ -1,5 +1,5 @@
 module "roles" {
-  source = "github.com/global-devops-terraform/user-roles?ref=v1.3.0"
+  source = "github.com/global-devops-terraform/user-roles?ref=v1.4.1"
 
   devops_roles        = var.devops_management
   developer_roles     = var.dev_worker
