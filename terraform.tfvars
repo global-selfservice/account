@@ -5,3 +5,10 @@ devops_management = [
   "ADFS-FullAccess/Stuart.Clark",
   "ADFS-FullAccess/VinodSai.Kumar"
 ]
+
+dev_worker = [
+  "ADFS-CloudRO/Arathy.Krishna",
+  "ADFS-CloudRO/Julio.Chaves",
+  "ADFS-CloudRO/Nirmal.Baral",
+  "ADFS-CloudRO/Steven.Archer"
+]
