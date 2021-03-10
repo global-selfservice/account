@@ -8,6 +8,7 @@ locals {
     "selfservice-api-gateway",
     "selfservice-api-tests",
     "selfservice-businesses-api",
+    "selfservice-campaigns-admin-api",
     "selfservice-campaigns-api",
     "selfservice-payments-gateway",
     "selfservice-products-api",
