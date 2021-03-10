@@ -7,6 +7,8 @@ locals {
   repos = [
     "selfservice-api-gateway",
     "selfservice-api-tests",
+    "selfservice-assets-admin-api",
+    "selfservice-assets-api",
     "selfservice-businesses-api",
     "selfservice-campaigns-admin-api",
     "selfservice-campaigns-api",
