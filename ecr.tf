@@ -12,6 +12,7 @@ locals {
     "selfservice-businesses-api",
     "selfservice-campaigns-admin-api",
     "selfservice-campaigns-api",
+    "selfservice-gigya-api",
     "selfservice-payments-gateway",
     "selfservice-products-api",
     "selfservice-products-data-import-job",
