@@ -2,12 +2,10 @@ provider "aws" {
   region = "eu-west-1"
 }
 
-terraform {
-  backend "s3" {
-    bucket         = "global-self-service-dev-terraform-state"
-    key            = "account.tfstate"
-    region         = "eu-west-1"
-    dynamodb_table = "terraform-state-lock"
-    encrypt        = true
-  }
+provider "vault" {}
+
+provider "azuread" {
+  client_id     = local.azuread_appid
+  client_secret = local.azuread_secret
+  tenant_id     = module.common.azure_tenant_id
 }
